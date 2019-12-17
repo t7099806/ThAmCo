@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ThAmCo.Events.Data.Staffing>
+@{
+    ViewData["Title"] = "List";
+}
+
+<h2>Staff List</h2>
+
+<p>
+    <a asp-controller="Staffings" asp-action="Create" asp-route-eventId="@ViewData["EventId"]">Add staff</a>
+</p>
+

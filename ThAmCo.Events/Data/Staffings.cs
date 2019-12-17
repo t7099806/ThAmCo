@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ThAmCo.Events.Data
 {
-    public class Staffings
+    public class Staffing
     {
-        [Key, Column(Order = 0)]
+        
         public int StaffId { get; set; }
 
         public Staff Staff { get; set; }
