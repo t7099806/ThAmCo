@@ -75,7 +75,7 @@ namespace ThAmCo.Events.Controllers
             {
                 return NotFound();
             }
-            return View();
+            return View(staff);
         }
 
         [HttpPost]
