@@ -1,0 +1,86 @@
+﻿@model ThAmCo.Events.Models.CustomerDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2> Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SurName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SurName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+<div class="col-md-4">
+    @if (Model.Events.Any())
+    {
+        <h4>Events</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CustomerID)
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        TypeID
+                    </th>
+                    <th>
+                        Attended
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Events)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(Model => item.EventId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Model => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => item.TypeID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(mode => item.Attended)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p><br />No events booked</p>
+    }
+</div>
+
