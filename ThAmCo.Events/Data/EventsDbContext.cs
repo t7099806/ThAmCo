@@ -12,6 +12,8 @@ namespace ThAmCo.Events.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<GuestBooking> Guests { get; set; }
 
+        public DbSet<Staff> Staffs { get; set; }
+
         private IHostingEnvironment HostEnv { get; }
 
         public EventsDbContext(DbContextOptions<EventsDbContext> options,
@@ -67,10 +69,17 @@ namespace ThAmCo.Events.Data
                     new GuestBooking { CustomerId = 2, EventId = 1, Attended = false },
                     new GuestBooking { CustomerId = 1, EventId = 2, Attended = false },
                     new GuestBooking { CustomerId = 3, EventId = 2, Attended = false }
-                ); 
-            }
-        }
+                );
 
+
+                builder.Entity<Staff>().HasData(
+                    new Staff { StaffId = 1, FirstName = "Jack", Surname = "Ferguson", FirstAider = true },
+                    new Staff { StaffId = 2, FirstName = "John", Surname = "Boyd", FirstAider = true },
+                    new Staff { StaffId = 3, FirstName = "James", Surname = "Francis", FirstAider = true }
+                );
+            }
+
+        }
         public DbSet<ThAmCo.Events.Models.AvailableVenueModel> AvailableVenueModels { get; set; }
     }
 }
