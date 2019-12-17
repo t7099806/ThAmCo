@@ -40,6 +40,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstAider)
                 </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.StaffId">Edit</a>
+                </td>
             </tr>
         }
     </tbody>
